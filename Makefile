@@ -6,6 +6,7 @@ UV := uv
 
 install:
 	# Create venv and sync dependencies from uv.lock / pyproject.toml
+	pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 	$(UV) venv $(VENV)
 	$(UV) sync
 	pip install -e .
