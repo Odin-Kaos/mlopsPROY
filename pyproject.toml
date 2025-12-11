@@ -1,16 +1,19 @@
 [project]
-name = "proyect"
+name = "lab1"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "active>=0.0.5a0",
     "black>=25.11.0",
-    "click>=8.3.0",
-    "numpy>=2.3.4",
-    "pylink>=0.3.3",
-    "pylint>=4.0.2",
-    "pytest>=9.0.0",
+    "click>=8.3.1",
+    "fastapi[standard]>=0.123.0",
+    "httpx>=0.28.1",
+    "jinja2>=3.1.6",
+    "pylint>=4.0.4",
+    "pytest>=9.0.1",
     "pytest-cov>=7.0.0",
+    "torch>=2.9.1",
+    "torchvision>=0.24.1",
+    "uvicorn>=0.38.0",
 ]

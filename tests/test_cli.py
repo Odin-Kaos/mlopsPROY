@@ -1,32 +1,29 @@
-# test_logic.py
+# test_cli.py
 import pytest
-import math
-from src.preprocessing import (
-    remove_missing, fill_missing, remove_duplicates,
-    normalize_minmax, standardize_zscore, clip_values,
-    convert_to_int, log_transform, tokenize_text,
-    clean_text, remove_stopwords, flatten_list, shuffle_list
-)
+from click.testing import CliRunner
+from Lab1.cli.cli import cli
+
 
 @pytest.fixture
-def sample_numbers():
-    return [10, 20, 30]
+def runner():
+    return CliRunner()
 
-@pytest.fixture
-def sample_text():
-    return "Hello World!! 123"
 
-@pytest.mark.parametrize("values,expected", [
-    ([1, None, "", float("nan"), 2], [1, 2]),
-    ([None, "", float("nan")], []),
-    ([1, 2, 3], [1, 2, 3]),
-])
-def test_remove_missing(values, expected):
-    assert remove_missing(values) == expected
+def test_predict_command(runner, tmp_path):
+    # Create a dummy file to serve as img_path
+    img_file = tmp_path / "dummy.jpg"
+    img_file.write_text("fake image content")
 
-@pytest.mark.parametrize("values,fill_value,expected", [
-    ([1, None, 2, ""], 0, [1, 0, 2, 0]),
-    ([None, float("nan")], 99, [99, 99]),
-])
-def test_fill_missing(values, fill_value, expected):
-    assert fill_missing(values, fill_value) == expected
+    result = runner.invoke(cli, ["predict", str(img_file)])
+    assert result.exit_code == 0
+    assert "Prediction:" in result.output
+
+
+def test_rescale_command(runner, tmp_path):
+    # Create a dummy file to serve as img_path
+    img_file = tmp_path / "dummy.jpg"
+    img_file.write_text("fake image content")
+
+    result = runner.invoke(cli, ["rescale", str(img_file), "128"])
+    assert result.exit_code == 0
+    assert f"Rescaled {img_file} to 128x128" in result.output
