@@ -1,7 +1,7 @@
 # test_cli.py
 import pytest
 from click.testing import CliRunner
-from Lab1.cli.cli import cli
+from cli.cli import cli
 
 
 @pytest.fixture

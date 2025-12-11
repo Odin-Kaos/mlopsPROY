@@ -1,7 +1,7 @@
 # test_prediction.py
 import pytest
 import torch
-from Lab1.mylib.model import predict, rescale
+from mylib.model import predict, rescale
 
 
 @pytest.fixture

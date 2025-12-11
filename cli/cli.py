@@ -3,7 +3,7 @@ Main CLI or app entry point for prediction library
 """
 
 import click
-from Lab1.mylib.model import predict, rescale
+from mylib.model import predict, rescale
 
 @click.group()
 def cli():

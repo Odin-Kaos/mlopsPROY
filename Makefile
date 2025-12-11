@@ -8,6 +8,7 @@ install:
 	# Create venv and sync dependencies from uv.lock / pyproject.toml
 	$(UV) venv $(VENV)
 	$(UV) sync
+	pip install -e .
 
 lint:
 	$(UV) run pylint Lab1 || true

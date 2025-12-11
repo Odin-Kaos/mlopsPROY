@@ -8,7 +8,7 @@ from pathlib import Path
 import torch
 from torchvision.io import decode_image
 
-from Lab1.mylib.model import predict, rescale
+from mylib.model import predict, rescale
 
 app = FastAPI(title="MLOps Lab1 API")
 
