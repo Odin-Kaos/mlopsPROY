@@ -1,5 +1,5 @@
 [![CI](https://github.com/Odin-Kaos/mlopsPROY/actions/workflows/CI.yml/badge.svg?branch=Lab1)](https://github.com/Odin-Kaos/mlopsPROY/actions/workflows/CI.yml)
-# Lab1 - Random Image Clasifier
+# Lab2 - Random Image Clasifier
 
 Simple mock proyect to test some libraries.
 
